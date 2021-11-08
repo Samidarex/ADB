@@ -19,10 +19,10 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/react-hooks": "^3.4.2",
     "@testing-library/user-event": "^12.4.0",
+    "eslint-plugin-jest-dom": "3.9.2",
     "history": "^5.0.0",
-    "eslint-plugin-jest-dom":"3.9.2",
-    "jest": "^26.6.3",
     "jest-axe": "^4.1.0",
+    "jest-cli": "^27.3.1",
     "kcd-scripts": "^7.5.1",
     "msw": "^0.24.1",
     "react": "^17.0.1",
@@ -46,7 +46,6 @@
       "kcd-scripts/babel"
     ]
   },
-
   "eslintIgnore": [
     "node_modules",
     "coverage",
@@ -74,5 +73,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
   }
 }
