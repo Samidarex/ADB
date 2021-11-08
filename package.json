@@ -20,6 +20,7 @@
     "@testing-library/react-hooks": "^3.4.2",
     "@testing-library/user-event": "^12.4.0",
     "history": "^5.0.0",
+    "eslint-plugin-jest-dom":"3.9.2",
     "jest": "^26.6.3",
     "jest-axe": "^4.1.0",
     "kcd-scripts": "^7.5.1",
@@ -45,18 +46,7 @@
       "kcd-scripts/babel"
     ]
   },
-  "eslintConfig": {
-    "extends": "./node_modules/kcd-scripts/eslint.js",
-    "rules": {
-      "import/prefer-default-export": "off",
-      "jsx-a11y/label-has-for": "off",
-      "react/prop-types": "off",
-      "import/no-unassigned-import": "off",
-      "no-console": "off",
-      "jsx-a11y/accessible-emoji": "off",
-      "consistent-return": "off"
-    }
-  },
+
   "eslintIgnore": [
     "node_modules",
     "coverage",
@@ -73,12 +63,16 @@
     "jsxBracketSameLine": false,
     "proseWrap": "always"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kentcdodds/react-testing-library-course.git"
-  },
-  "bugs": {
-    "url": "https://github.com/kentcdodds/react-testing-library-course/issues"
-  },
-  "homepage": "https://github.com/kentcdodds/react-testing-library-course#readme"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
