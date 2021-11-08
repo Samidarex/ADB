@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "react-scripts build",
-    "test": "kcd-scripts test --watchAll=false",
+    "test": "kcd-scripts test --watchAll=true",
     "lint": "kcd-scripts lint",
     "validate": "kcd-scripts validate",
     "setup": "npm install --silent && npm run validate --silent"
