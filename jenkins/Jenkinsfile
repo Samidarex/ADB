@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     environment {
         CI = 'true'
     }
@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 git 'https://github.com/Samidarex/ADB.git'
-                sh 'npm install'
+                bat 'npm install'
             }
         }
         stage('Test') {
