@@ -2,16 +2,15 @@
   "name": "react-testing-library-course",
   "version": "1.0.0",
   "private": true,
-  "description": "Course material for testing React components using react-testing-library",
   "main": "index.js",
   "scripts": {
-    "test": "kcd-scripts test --watchAll",
+    "build": "react-scripts build",
+    "test": "kcd-scripts test --watchAll=false",
     "lint": "kcd-scripts lint",
     "validate": "kcd-scripts validate",
     "setup": "npm install --silent && npm run validate --silent"
   },
   "keywords": [],
-  "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
   "license": "MIT",
   "dependencies": {
     "@reach/router": "^1.3.4",
