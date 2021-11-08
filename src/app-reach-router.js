@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
+import {Router, Link, navigate} from '@reach/router'
 import {submitForm} from './api'
 
 const MultiPageForm = React.createContext()
@@ -38,7 +38,7 @@ function Main() {
   )
 }
 
-function Page1({history}) {
+function Page1() {
   const {form, setFormValues} = useMultiPageForm()
   return (
     <>
@@ -46,7 +46,7 @@ function Page1({history}) {
       <form
         onSubmit={(e) => {
           e.preventDefault()
-          history.push('/page-2')
+          navigate('/page-2')
         }}
       >
         <label htmlFor="food">Favorite Food</label>
@@ -61,7 +61,7 @@ function Page1({history}) {
   )
 }
 
-function Page2({history}) {
+function Page2() {
   const {form, setFormValues} = useMultiPageForm()
   return (
     <>
@@ -69,7 +69,7 @@ function Page2({history}) {
       <form
         onSubmit={(e) => {
           e.preventDefault()
-          history.push('/confirm')
+          navigate('/confirm')
         }}
       >
         <label htmlFor="drink">Favorite Drink</label>
@@ -84,16 +84,16 @@ function Page2({history}) {
   )
 }
 
-function Confirm({history}) {
+function Confirm() {
   const {form, resetForm} = useMultiPageForm()
   function handleConfirmClick() {
     submitForm(form).then(
       () => {
         resetForm()
-        history.push('/success')
+        navigate('/success')
       },
       (error) => {
-        history.push('/error', {state: {error}})
+        navigate('/error', {state: {error}})
       },
     )
   }
@@ -147,14 +147,12 @@ function App() {
   return (
     <MultiPageFormProvider initialValues={{food: '', drink: ''}}>
       <Router>
-        <Switch>
-          <Route path="/page-1" component={Page1} />
-          <Route path="/page-2" component={Page2} />
-          <Route path="/confirm" component={Confirm} />
-          <Route path="/success" component={Success} />
-          <Route path="/error" component={Error} />
-          <Route component={Main} />
-        </Switch>
+        <Main default />
+        <Page1 path="/page-1" />
+        <Page2 path="/page-2" />
+        <Confirm path="/confirm" />
+        <Success path="/success" />
+        <Error path="/error" />
       </Router>
     </MultiPageFormProvider>
   )
