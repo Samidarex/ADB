@@ -2,7 +2,7 @@ import * as React from 'react'
 import {render, act} from '@testing-library/react'
 import {useCounter} from '../use-counter'
 
-test('exposes the count and increment/decrement functions', () => {
+test('exposes the count and increment/decrement functions', async  () => {
   let result
   function TestComponent() {
     result = useCounter()

@@ -6,15 +6,15 @@ import {ErrorBoundary} from '../error-boundary'
 
 jest.mock('../api')
 
-beforeAll(() => {
+beforeAll(async () => {
   jest.spyOn(console, 'error').mockImplementation(() => {})
 })
 
-afterAll(() => {
+afterAll(async () => {
   console.error.mockRestore()
 })
 
-afterEach(() => {
+afterEach(async () => {
   jest.clearAllMocks()
 })
 
@@ -26,7 +26,7 @@ function Bomb({shouldThrow}) {
   }
 }
 
-test('calls reportError and renders that there was a problem', () => {
+test('calls reportError and renders that there was a problem', async () => {
   mockReportError.mockResolvedValueOnce({success: true})
   const {rerender} = render(
     <ErrorBoundary>
