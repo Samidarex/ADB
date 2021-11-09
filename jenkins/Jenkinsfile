@@ -42,6 +42,10 @@ pipeline {
                     input message: 'Commit created succesfully!'
                 }
             }
+            
         }
+        stage('Email Notification'){
+        mail bcc: '', body: '''Build successful!!!! Thanks,User''', cc: '', from: '', replyTo: '', subject: 'Build successfull', to: 'marcel.prodan00@gmail.com'
+}
     }
 }
