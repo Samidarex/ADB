@@ -45,7 +45,9 @@ pipeline {
             
         }
         stage('Email Notification'){
-        mail bcc: '', body: '''Build successful!!!! Thanks,User''', cc: '', from: '', replyTo: '', subject: 'Build successfull', to: 'marcel.prodan00@gmail.com'
-}
+            steps {
+                emailext attachLog: true, body: 'Rezultat $BUILD_URL', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'marcel.prodan00@gmail.com'
+            }
+        }
     }
 }
