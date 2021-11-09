@@ -13,6 +13,9 @@ pipeline {
                         tagFilter: '*', 
                         type: 'PT_BRANCH', 
                         useRepository: 'git@github.com:Samidarex/ADB.git')
+             booleanParam(name: 'CLEAN_WORKSPACE', defaultValue: true, description: 'Clean')
+
+             booleanParam(name: 'TESTING_FRONTEND', defaultValue: false, description: 'Front')
     }
 
     stages {
