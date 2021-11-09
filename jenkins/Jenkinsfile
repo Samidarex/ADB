@@ -25,6 +25,19 @@ pipeline {
             post
             {
                 success{
+                    bat 'git config --global credential.helper cache'
+                    bat 'git config --global push.default simple'
+                    checkout([
+                            $class: 'GitSCM',
+    branches: [[name: branch]],
+    extensions: [
+        [$class: 'CloneOption', noTags: true, reference: '', shallow: true]
+    ],
+    submoduleCfg: [],
+    userRemoteConfigs: [
+        [ credentialsId: 'bitbucketUsernamePassword', url: cloneUrl]
+    ]
+])
                     bat 'git add .'
                     bat 'git commit -am "Updated version"'
                     bat 'git push --set-upstream origin master'
