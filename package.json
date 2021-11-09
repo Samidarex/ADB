@@ -1,5 +1,5 @@
 {
-  "name": "react-testing-library-course",
+  "name": "ADB-jenkins",
   "version": "1.0.0",
   "private": true,
   "main": "index.js",
@@ -76,6 +76,7 @@
     ]
   },
   "devDependencies": {
+    "jest-cli": "^27.3.1",
     "jest-environment-jsdom": "^27.3.1"
   }
 }
