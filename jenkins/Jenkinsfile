@@ -39,7 +39,8 @@ pipeline {
                
                     bat 'git add .'
                     bat 'git commit -am "Updated version"'
-                    input message: 'Commit created succesfully!'
+                    input message: 'Commit created succesfully, starting clearing the workspace'
+                    cleanWs deleteDirs: true, patterns: [[pattern: 'node_modules', type: 'EXCLUDE']]
                 }
             }
         }
