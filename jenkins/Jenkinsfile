@@ -37,7 +37,7 @@ pipeline {
             }
                
             }
-        }
+        
         stage('Build') {
             steps {
                 bat './jenkins/scripts/deliver.bat'
