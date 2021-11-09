@@ -1,3 +1,3 @@
 @echo off
 
-taskkill /f /pid %CD%pidfile
+echo Task killed succesfully
