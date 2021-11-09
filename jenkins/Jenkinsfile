@@ -28,7 +28,7 @@ pipeline {
                
                     bat 'git add .'
                     bat 'git commit -am "Updated version"'
-                    bat 'git push'
+                    bat 'git push -u origin head'
                 }
             }
         }
