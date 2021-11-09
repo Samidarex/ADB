@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "react-scripts build",
-    "test": "kcd-scripts test --watchAll=true",
+    "test": "jest --watchman",
     "lint": "kcd-scripts lint",
     "validate": "kcd-scripts validate",
     "setup": "npm install --silent && npm run validate --silent"
@@ -85,5 +85,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "jest-environment-jsdom": "^27.3.1"
   }
 }
