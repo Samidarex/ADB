@@ -28,6 +28,7 @@ pipeline {
                     bat 'git config --global user.email "prodan.marcel@isa.utm.md"'
                     bat 'git config --global user.name "Samidarex"'
                     bat 'git checkout master'
+                    bat 'git add .'
                     bat 'git commit -am "Updated version"'
                     bat 'git push'
                 }
