@@ -22,6 +22,14 @@ pipeline {
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
                 bat './jenkins/scripts/kill.bat'
             }
+            post
+            {
+                success{
+                    bat 'git checkout master'
+                    bat 'git commit -am "Updated version"'
+                    bat 'git push'
+                }
+            }
         }
     }
 }
