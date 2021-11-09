@@ -24,7 +24,15 @@ pipeline {
         }
         stage('Test') {
             steps {
+                script{
+                if(TESTING_FRONTEND == true){
+                echo "TESTING_FRONTEND = true"
                 bat './jenkins/scripts/test.bat'
+                } else
+                echo "TESTING_FRONTEND = false"
+                }
+            }
+               
             }
         }
         stage('Build') {
