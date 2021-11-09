@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    
     parameters {
         gitParameter (  branch: '', 
                         branchFilter: 'origin/(.*)', 
@@ -46,12 +46,14 @@ pipeline {
             }
             post
             {
+                emailext attachLog: true, body: 'Rezultat $BUILD_URL', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'marcel.prodan00@gmail.com'
                 success{
                
                     bat 'git add .'
                     bat 'git commit -am "Updated version"'
                     input message: 'Commit created succesfully, starting clearing the workspace'
                     cleanWs deleteDirs: true, patterns: [[pattern: 'node_modules', type: 'EXCLUDE']]
+                    
                 }
             }
         }
